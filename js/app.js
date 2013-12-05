@@ -48,7 +48,7 @@ function start() {
   // init options
   map.radius = 200;
   map.adjustAngle = 30;
-  map.sides = 6;
+  map.sides = 3;
   map.levels = 5;
   map.center.y = 250;
   
@@ -63,47 +63,56 @@ function start() {
   var data_markers = [];
   for (var i=0; i< total_markers; i++) {
     data_markers[i] = {
-                        id: 0,
-                        user: {
-                          rate_usage: {
-                            value: 12,
-                            max: 100,
-                            min: 0
-                          },
-                          rate_time: {
-                            value: 2013,
-                            max: 2050,
-                            min: 2010
-                          },
-                          rate_effect: {
-                            value: 12,
-                            max: 100,
-                            min: 0
-                          }
-                        },
-                        average: {
-                          rate_usage: {
-                            value: 12,
-                            max: 100,
-                            min: 0
-                          },
-                          rate_time: {
-                            value: 2013,
-                            max: 2050,
-                            min: 2010
-                          },
-                          rate_effect: {
-                            value: 12,
-                            max: 100,
-                            min: 0
-                          }
-                        }
+      id: i,
+      data: {
+        0: {
+          name: 'demand',
+          value: Math.floor(Math.random()*100),
+          max: 100,
+          min: 0
+        },
+        1: {
+          name: 'time',
+          value: Math.floor(Math.random() * (2050 - 2010 + 1)) + 2010,
+          max: 2050,
+          min: 2010
+        },
+        2: {
+          name: 'effect',
+          value: Math.floor(Math.random()*100),
+          max: 100,
+          min: 0
+        },
+//        3: {
+//          name: 'cccc',
+//          value: Math.floor(Math.random()*100),
+//          max: 100,
+//          min: 0
+//        },
+//        4: {
+//          name: 'aaa',
+//          value: Math.floor(Math.random()*100),
+//          max: 100,
+//          min: 0
+//        },
+//        5: {
+//          name: 'bbb',
+//          value: Math.floor(Math.random()*100),
+//          max: 100,
+//          min: 0
+//        }
+      }
     }
   }//end-markers-loop
   
   
   // initialize with given settings
   map.init(data_markers);
+  
+  
+  map.markers[0].strokeWidth = 3;
+  map.markers[0].fillStyle = new spider.Color(200,0,0,0.4);
+  
   
   // labels settings
   //  - use forEachLoop

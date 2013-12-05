@@ -92,6 +92,9 @@ spider.Spider.prototype.draw = function() {
   this.drawSegments();
   //
   this.drawLabel();
+  //
+  this.drawMarkers();
+  
 }
 /**
  * Refresh the map
@@ -182,7 +185,7 @@ spider.Spider.prototype.init = function(dataMarkers) {
   
   // 3. create Markers
   for (var i=0; i<this.totalMarkers; i++) {
-    this.markers[i] = new spider.Marker(this, this.dataMarkers[i], 'marker_' + i);
+    this.markers[i] = new spider.Marker(this, this.dataMarkers[i].data, 'marker_' + i);
   }
 }
 
@@ -343,4 +346,18 @@ spider.Spider.prototype.forEachMarker = function(op) {
     var marker = this.markers[i];
     op(marker);
   }
+}
+
+
+/**
+ * Draw each markers
+ * 
+ */
+spider.Spider.prototype.drawMarkers = function() {
+  
+  for (var i=0; i<this.markers.length; i++) {
+    //
+    this.markers[i].draw();
+  }
+  
 }
