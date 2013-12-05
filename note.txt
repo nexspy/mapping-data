@@ -1,0 +1,14 @@
+
+Introduction
+
+
+Segment means the shape drawn from inside to outside making the spider.
+
+
+
+A Marker is a shape drawn from the users values. Example, can be ratings by users.
+
+
+
+
+
